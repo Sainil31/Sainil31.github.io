@@ -29,8 +29,8 @@
         <!-- Background overlay -->
         <div id="overlay"></div>        
 		
-		<div class="wrapper">
-		    <div class="sidebar" id="side">
+	<div class="wrapper">
+	     <div class="sidebar" id="side">
                 <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
                     <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Image">
                     <h1 class="mt-2">Sainil Bandodkar</h1>
@@ -442,13 +442,13 @@
                 const popup = document.getElementById('contactPopup');
                 const overlay = document.getElementById('overlay');
                 const mainContent1 = document.getElementById('side');
-				const mainContent2 = document.getElementById('content');
+	        const mainContent2 = document.getElementById('content');
 
                 const isVisible = popup.style.display === 'block';
 
                 popup.style.display = isVisible ? 'none' : 'block';
                 overlay.style.display = isVisible ? 'none' : 'block';
-				mainContent1.classList.toggle('overlay-blur', !isVisible);
+		mainContent1.classList.toggle('overlay-blur', !isVisible);
                 mainContent2.classList.toggle('overlay-blur', !isVisible);
             }
         </script>
