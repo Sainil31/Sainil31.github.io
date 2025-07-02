@@ -12,9 +12,10 @@
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Poppins&display=swap" rel="stylesheet"> 
-
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
         <!-- Libraries Stylesheet -->
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -25,8 +26,11 @@
      </head>
 
     <body data-spy="scroll" data-target=".navbar" data-offset="51">
-        <div class="wrapper">
-            <div class="sidebar">
+        <!-- Background overlay -->
+        <div id="overlay"></div>        
+		
+		<div class="wrapper">
+		    <div class="sidebar" id="side">
                 <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
                     <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Image">
                     <h1 class="mt-2">Sainil Bandodkar</h1>
@@ -43,14 +47,14 @@
                     </div>
                     <div class="d-flex align-items-end justify-content-between">
                         <a href="img/Sainil_Bandodkar_CV.pdf" class="btn btn-block border-right" target="_blank" rel="noopener noreferrer">Download CV </a>
-                        <a class="btn btn-block btn-scroll" href="#contact">Contact Me</a>
+                        <a class="btn btn-block btn-scroll" href="javascript:void(0)" onclick="togglePopup()">Contact Me</a>
                     </div>
                 </div>
                 <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
                     <i class="fas fa-2x fa-angle-double-right text-primary"></i>
                 </div>
             </div>
-            <div class="content">
+            <div class="content" id="content">
                 <!-- About Start -->
                 <div class="container bg-white py-5">
                     <div class="row px-3">
@@ -377,7 +381,41 @@
                 <!-- Footer End -->
             </div>
         </div>
-        
+        <!-- Popup Box -->
+        <div class="popup" class="align-items-center" id="contactPopup" >
+            <h3 class="mb-2">Let's Connect</h3>
+        <div class="contact-info">
+                <div class="d-flex align-items-center mb-2">
+                     <a class="btn btn-outline-primary btn-square mr-2" href="tel:+919158346209">
+                        <i class="fas fa-phone"></i>
+                     </a>
+                     <a href="tel:+919158346209"> +91-9158346209 </a>
+                </div>
+				
+				<div class="d-flex align-items-center mb-2">
+                     <a class="btn btn-outline-primary btn-square mr-2" href="https://linkedin.com/in/sainil-bandodkar-67b281187" target="_blank" rel="noopener noreferrer">
+                         <i class="fab fa-linkedin-in"></i>
+                     </a>
+                     <a href="https://linkedin.com/in/sainil-bandodkar-67b281187" target="_blank" rel="noopener noreferrer"> Sainil Bandodkar </a>
+                </div>
+                
+                <div class="d-flex align-items-center mb-2">
+                     <a class="btn btn-outline-primary btn-square mr-2" href="mailto:sainilbandodkar3105@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                     </a>
+                     <a href="mailto:sainilbandodkar3105@gmail.com"> sainilbandodkar3105@gmail.com</a>
+                </div>
+                
+                <div class="d-flex align-items-center mb-2">
+                     <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/sainil.bandodkar" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                     </a>
+                     <a href="https://www.facebook.com/sainil.bandodkar" target="_blank" rel="noopener noreferrer"> Sainil Bandodkar </a>
+                </div>
+		</div>
+        <button class="close-btn btn btn-danger mt-3" onclick="togglePopup()">Close</button>
+        </div>
+	
         <!-- Back to Top -->
         <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
         
@@ -397,5 +435,23 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
-    </body>
+		
+		<!-- Toggle Script -->
+        <script>
+             function togglePopup() {
+                const popup = document.getElementById('contactPopup');
+                const overlay = document.getElementById('overlay');
+                const mainContent1 = document.getElementById('side');
+				const mainContent2 = document.getElementById('content');
+
+                const isVisible = popup.style.display === 'block';
+
+                popup.style.display = isVisible ? 'none' : 'block';
+                overlay.style.display = isVisible ? 'none' : 'block';
+				mainContent1.classList.toggle('overlay-blur', !isVisible);
+                mainContent2.classList.toggle('overlay-blur', !isVisible);
+            }
+        </script>
+
+	</body>
 </html>
