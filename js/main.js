@@ -18,8 +18,8 @@
         var typed_strings = $('.typed-text').text();
         var typed = new Typed('.typed-text-output', {
             strings: typed_strings.split(', '),
-            typeSpeed: 200,
-            backSpeed: 20,
+            typeSpeed: 70,
+            backSpeed: 30,
             smartBackspace: false,
             loop: true
         });
